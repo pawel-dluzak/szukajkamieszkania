@@ -4,6 +4,7 @@ import urllib.parse
 import time
 import codecs
 import os
+import sys
 
 headers={'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.47 Safari/537.36'}
 
@@ -157,6 +158,9 @@ def PojedynczaOfertaHandler(listaSlowZakazanych):
     print("#Zrzut 2")
 
 def main():
+    user = sys.argv[1]
+    polecenie = "copy gumtreeprzemielone.txt " + user + "\\Desktop"
+    print(polecenie)
     listaSlowZakazanych = ['psie pole', 'kromera', 'marino', 'nadodrze', 'ołtaszyn',
                            'partynice', 'jaracza', 'sołtysowice', 'jagodno', 'śródmieście',
                            'księże', 'księża', 'kamieńskiego', 'aneks', 'maślic',
@@ -170,7 +174,7 @@ def main():
     NiewygodneSlowa(listaSlowZakazanych, KrzyczPliku(SzlifowanieDiamentu()))
     PojedynczaOfertaHandler(listaSlowZakazanych)
     os.remove("swiezutkiemieszkania.txt")
-    os.system(r"copy gumtreeprzemielone.txt C:\Users\Paweł\Desktop")
+    os.system(polecenie)
     print("#Done")
 
 main()

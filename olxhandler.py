@@ -4,6 +4,7 @@ import urllib.parse
 import time
 import codecs
 import os
+import sys
 
 headers={'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.47 Safari/537.36'}
 
@@ -130,6 +131,8 @@ def PojedynczaOfertaHandler(listaSlowZakazanych, listaofert):
     print("#Zrzut do pliku...")
 
 def main():
+    user = sys.argv[1]
+    polecenie = "copy olxprzemielone.txt " + user + "\\Desktop"
     listaSlowZakazanych = ['psie pole', 'kromera', 'marino', 'nadodrze', 'ołtaszyn',
                            'partynice', 'jaracza', 'sołtysowice', 'jagodno', 'śródmieście',
                            'księże', 'księża', 'kamieńskiego', 'aneks', 'maślic',
@@ -147,7 +150,7 @@ def main():
     listaopisilink = SpisOfert(cichutkiopis,pocieteoferty)
     znowulista = NiewygodneOferty(listaSlowZakazanych, listaopisilink)
     PojedynczaOfertaHandler(listaSlowZakazanych,znowulista)
-    os.system(r"copy olxprzemielone.txt C:\Users\Paweł\Desktop")
+    os.system(polecenie)
     print("#Done")
 
 main()

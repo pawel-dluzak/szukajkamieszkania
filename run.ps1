@@ -1,3 +1,3 @@
-python gumtreehandler.py listaslow.txt
-python olxhandler.py
-python zmywarkafinder.py
+python gumtreehandler.py $env:Userprofile
+python olxhandler.py $env:Userprofile
+python zmywarkafinder.py $env:Userprofile
